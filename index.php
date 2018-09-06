@@ -1,6 +1,8 @@
 <?php
 
 include("connections.php");
+include("navigation.php");
+
 
 $first_name = $middle_name = $last_name = $email = $gender = "";
 $first_nameErr = $middle_nameErr = $last_nameErr = $emailErr = $genderErr = "";
@@ -89,13 +91,13 @@ if (isset($_POST["btnRegister"])){
 
 <form method="POST">
 
-<input type="text" name="first_name" placeholder="First Name" value="<?php echo $first_name; ?>"> <span class="error"><?php echo $first_nameErr; ?></span> <br>
+	<input type="text" name="first_name" placeholder="First Name" value="<?php echo $first_name; ?>"> <span class="error"><?php echo $first_nameErr; ?></span> <br>
 
-<input type="text" name="middle_name" placeholder="Middle Name" value="<?php echo $middle_name; ?>"> <span class="error"><?php echo $middle_nameErr; ?></span><br>
+	<input type="text" name="middle_name" placeholder="Middle Name" value="<?php echo $middle_name; ?>"> <span class="error"><?php echo $middle_nameErr; ?></span><br>
 
-<input type="text" name="last_name" placeholder="Last Name" value="<?php echo $last_name; ?>"> <span class="error"><?php echo $last_nameErr; ?></span> <br>
+	<input type="text" name="last_name" placeholder="Last Name" value="<?php echo $last_name; ?>"> <span class="error"><?php echo $last_nameErr; ?></span> <br>
 
-<input type="text" name="email" placeholder="E-mail" value="<?php echo $email; ?>"> <span class="error"><?php echo $emailErr; ?></span><br>
+	<input type="text" name="email" placeholder="E-mail" value="<?php echo $email; ?>"> <span class="error"><?php echo $emailErr; ?></span><br>
 
 <select name="gender">
 
@@ -106,10 +108,10 @@ if (isset($_POST["btnRegister"])){
 	<option name ="gender" <?php if($gender == "Female"){echo "selected";} ?> value="Female"> Female </option>
 	
 </select>
-<span class="error"><?php echo $genderErr; ?></span>
-<br><br>
+	<span class="error"><?php echo $genderErr; ?></span>
+	<br><br>
 
-<input type="Submit" name="btnRegister" value="Register"> <br>
+	<input type="Submit" name="btnRegister" value="Register"> <br>
 
 </form>
 
@@ -126,6 +128,12 @@ $search = $searchErr = "";
 		}else{
 			
 			$search = $_POST["search"];
+		}
+		
+		if($search){
+			
+			echo "<script> window.location.href='result.php?search=$search';</script>";
+			
 		}
 	}
 

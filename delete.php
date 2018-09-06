@@ -1,6 +1,7 @@
 <?php
 
 include("connections.php");
+include("navigation.php");
 
 $user_id = $_GET["user_id"];
 
